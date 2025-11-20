@@ -20,6 +20,13 @@ body {
   align-items: baseline;
 }
 
+.results {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+}
+
 button {
   border-radius: 100%;
   border: 4px solid skyblue;

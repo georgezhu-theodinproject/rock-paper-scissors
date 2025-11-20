@@ -19,17 +19,23 @@ function getRandomInt(max) {
 
 function playRound(human, computer) {
   if (human == computer) {
+    results.textContent = "You draw!";
     console.log("You draw!");
+    results.style.color = "black";
     return;
   } else if (
     (human === "rock" && computer === "scissors") ||
     (human === "paper" && computer === "rock") ||
     (human === "scissors" && computer === "paper")
   ) {
-    console.log(`You win! ${human} beats ${computer}`);
+    results.textContent = `You win! ${human} beats ${computer}`;
+    results.style.color = "green";
+
     humanScore++;
   } else {
-    console.log(`You lose! ${computer} beats ${human}`);
+    results.textContent = `You lose! ${computer} beats ${human}`;
+    results.style.color = "red";
+
     computerScore++;
   }
 }
@@ -43,6 +49,7 @@ function playGame() {
 }
 
 const buttons = document.querySelectorAll("button");
+const results = document.querySelector(".results");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
