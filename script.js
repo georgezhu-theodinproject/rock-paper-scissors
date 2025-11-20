@@ -50,12 +50,16 @@ function playGame() {
 
 const buttons = document.querySelectorAll("button");
 const results = document.querySelector(".results");
+const humanScoreDiv = document.querySelector(".player-score");
+const computerScoreDiv = document.querySelector(".computer-score");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     console.log(button.id);
     const humanChoice = button.id;
     playRound(button.id, getComputerChoice());
+    humanScoreDiv.textContent = humanScore;
+    computerScoreDiv.textContent = computerScore;
   });
 });
 
