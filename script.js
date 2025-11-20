@@ -42,9 +42,19 @@ function playGame() {
   playRound(getHumanChoice(), getComputerChoice());
 }
 
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    console.log(button.id);
+    const humanChoice = button.id;
+    playRound(button.id, getComputerChoice());
+  });
+});
+
 let humanScore = 0;
 let computerScore = 0;
 
-playGame();
+// playGame();
 
-console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
+// console.log(`Score - You: ${humanScore}, Computer: ${computerScore}`);
