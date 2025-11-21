@@ -32,21 +32,35 @@ body {
   display: flex;
   justify-content: center;
   font-size: 48px;
-  flex: 1;
 }
 
-button {
+.container button {
   border-radius: 100%;
   border: 5px solid skyblue;
 }
 
 button:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
 }
 
 img {
   width: 150px;
   height: 150px;
+}
+
+.restart-container {
+  flex: 1;
+}
+
+.restart-container button {
+  border: none;
+  background-color: white;
+  visibility: hidden;
+}
+
+.restart img{
+  height: 70px;
+  width: auto;
 }
 
 a {

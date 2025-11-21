@@ -12,11 +12,12 @@ check winner
 let humanScore = 0;
 let computerScore = 0;
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".container button");
 const gameStatus = document.querySelector(".status");
 const resultsDiv = document.querySelector(".results");
 const humanScoreDiv = document.querySelector(".human-score");
 const computerScoreDiv = document.querySelector(".computer-score");
+const restartBtn = document.querySelector(".restart");
 
 function getComputerChoice() {
   switch (getRandomInt(3)) {
@@ -70,6 +71,8 @@ function checkWinner() {
     buttons.forEach((button) => {
       button.disabled = true;
     });
+
+    restartBtn.style.visibility = "visible";
   }
   if (humanScore === 5) {
     resultsDiv.textContent = "Congratulations! You are the winner!";
@@ -94,4 +97,20 @@ buttons.forEach((button) => {
     updateUI(results);
     checkWinner();
   });
+});
+
+restartBtn.addEventListener("click", () => {
+  humanScore = 0;
+  computerScore = 0;
+  gameStatus.textContent = "";
+  resultsDiv.textContent = "";
+  humanScoreDiv.textContent = humanScore;
+  computerScoreDiv.textContent = computerScore;
+  resultsDiv.style.color = "";
+
+  buttons.forEach((button) => {
+    button.disabled = false;
+  });
+
+  restartBtn.style.visibility = "hidden";
 });
